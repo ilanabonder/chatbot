@@ -3,7 +3,7 @@ var ChatBot = {};
 //The server path will be used when sending the chat message to the server.
 //todo replace with your server path if needed
 ChatBot.SERVER_PATH = "http://localhost:7000";
-ChatBot.DEFAULT_ANIMATION = "waiting";
+ChatBot.DEFAULT_ANIMATION = "dog";
 //The animation timeout is used to cut the current running animations when a new animations starts
 ChatBot.animationTimeout;
 //Holds the speech synthesis configuration like language, pich and rate
@@ -22,7 +22,7 @@ ChatBot.start = function () {
         ChatBot.bindErrorHandlers();
         ChatBot.initSpeechConfig();
         ChatBot.bindUserActions();
-        ChatBot.write("Hello, My name is Boto. What is yours?", "boto");
+        ChatBot.write("Hello, im the doglover robot. You can ask me lots of stuff about dogs. What is your dog's name?", "boto");
     });
 };
 
