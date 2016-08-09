@@ -13,9 +13,9 @@ def index():
 
 def dogLoverAnswer(msg):
     if msg.lower() == 'yes':
-        return {"animation":"dog", "msg": "Great! Now I know we can be good friends :). What's " + robot_memory["dog_name"] +"'s breed?"}
+        return {"animation":"dog", "msg": "I lov your positive vibes!! Great for " + robot_memory["dog_name"]}
     if msg.lower() == 'no':
-        return {"animation":"takeoff", "msg": "Sorry! We cant be good friends. Bye!"}
+        return {"animation":"takeoff", "msg": "Don't be so negative!!!"}
     return None
 
 def checkBreed(user_message):
@@ -27,13 +27,13 @@ def checkBreed(user_message):
         elif word.lower() == "pug":
             return {"animation": "giggling", "msg": "Pugs are so funny!"}
         elif word.lower() in smallDogs:
-            return {"animation": "heartbroken", "msg": "I don't really like small dogs"}
-        return None
+            return {"animation": "heartbroke", "msg": "I don't really like small dogs"}
+    return None
 
 def checkDogName(user_message):
     for word in user_message.split(" "):
         if word.lower() == robot_memory["dog_name"]:
-             return {"animation": "inlove", "msg":"I would love to meet"+ robot_memory["dog_name"]}
+             return {"animation": "inlove", "msg":"I would love to meet "+ robot_memory["dog_name"]}
     return None
 
 @route("/chat", method='POST')
@@ -44,7 +44,7 @@ def chat():
     if not robot_memory["dog_name"]:
         response.set_cookie("dog_name",user_message)
         robot_memory["dog_name"] = user_message
-        result = {"animation": "excited", "msg": robot_memory["dog_name"]+ " is a great name!!!"}
+        result = {"animation": "excited", "msg": robot_memory["dog_name"]+ " is a great name!!! "}
     if not result:
         result = dogLoverAnswer(user_message)
     if not result:
